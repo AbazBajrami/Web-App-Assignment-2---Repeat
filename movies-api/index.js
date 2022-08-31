@@ -25,10 +25,9 @@ const port = process.env.PORT;
 
 //app.use(session({secret: 'ilikecake',resave: true,saveUninitialized: true}));
 app.use(passport.initialize());
-app.use(express.json());
 app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
-app.use('/api/genres', genresRouter);
-app.use('/api/users', usersRouter);
+app.use('/api/genres', express.json(), genresRouter);
+app.use('/api/users', express.json(), usersRouter);
 app.use(errHandler);
 
 

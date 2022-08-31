@@ -9,7 +9,7 @@ export const login = (username, password) => {
 };
 
 export const signup = (username, password) => {
-    return fetch('/api/users?action=register', {
+    return fetch('../api/users?action=register', {
         headers: {
             'Content-Type': 'application/json'
         },
@@ -25,4 +25,13 @@ export const getMovies = () => {
       }
     }
     ).then(res => res.json());
+  };
+
+  export const getFavourites = (username) => {
+    return fetch(
+        `/api/users/${username}/favourites`,{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then((res) => res.json());
   };

@@ -4,7 +4,7 @@ import {AuthContext} from './authContext'
 
 const PrivateRoute = props => {
   const context = useContext(AuthContext)
-  // Destructure props from <privateRoute>
+  // Destructure props from <privateRoute> 
   const { component: Component, ...rest } = props;
   console.log(props.location)
   return context.isAuthenticated === true ? (
